@@ -1,4 +1,8 @@
-<h1>Jebem ti materesinu</h1>
+<h1>Mojo Theme Options</h1>
+<h3 class="title">Manage Options</h3>
 
+<p>Customize Sidebar Options</p>
 
-<?php bloginfo( 'name' ); ?>
+<form method="post" action="">
+    <?php settings_fields( 'mojo-settings-group' ); ?>
+</form>
