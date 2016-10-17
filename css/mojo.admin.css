@@ -1,0 +1,14 @@
+.mojo-general-form,
+.mojo-sidebar-preview {
+    
+    display: inline-block;
+    float: left;
+}
+
+.mojo-sidebar-preview { width: 280px; background-color: #1F1F1F; padding: 20px; text-align: center; margin-right: 20px; }
+.mojo-sidebar { display: block; text-align: center; }
+h1.mojo-username,
+h2.mojo-description { font-weight: 100; color: #fff; }
+h1.mojo-username { font-size: 24px; margin: 0 0 10px; }
+h2.mojo-description { font-size: 13px; margin: 0 0 20px; }
+
