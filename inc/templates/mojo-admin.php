@@ -1,4 +1,4 @@
-<h1>Mojo Theme Options</h1>
+<h1>Mojo Sidebar Options</h1>
 
 <?php settings_errors(); ?>
 <?php
