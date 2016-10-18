@@ -16,7 +16,10 @@ function mojo_add_admin_page(){
     
      add_submenu_page( 'nemus_mojo', 'Mojo Sidebar Options', 'Sidebar', 'manage_options', 'nemus_mojo', 'mojo_rising_create_page' );
     
+    
     add_submenu_page( 'nemus_mojo', 'Mojo CSS Options', 'Custom CSS', 'manage_options', 'nemus_mojo_css', 'mojo_rising_settings_page' );
+    
+    add_submenu_page( 'nemus_mojo', 'Mojo Theme Options', 'Theme Options', 'manage_options', 'nemus_mojo_theme', 'mojo_theme_support_page' );
     
     //activate custom settings
     add_action( 'admin_init', 'mojo_custom_settings' );
@@ -93,9 +96,9 @@ function mojo_sidebar_options(){
 
 function mojo_rising_settings_page(){
     
-    require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
+   echo '<h1>Mojo Custom CSS</h1>';
 }
 
 function mojo_rising_create_page(){
-    echo '<h1>Sisaj karinu</h1>';
+    require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
 }
