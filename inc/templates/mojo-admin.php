@@ -12,7 +12,7 @@
 <div class="mojo-sidebar-preview">
     <div class="mojo-sidebar">
        <div class="image-container">
-           <div class="profile-picture" style="background-image: url(<?php print $image ?>)">
+           <div id="profile-picture-preview" class="profile-picture" style="background-image: url(<?php print $image ?>)">
                
            </div>
        </div>
