@@ -11,15 +11,15 @@ function mojo_add_admin_page(){
     //Generate Mojo Admin Page
     add_menu_page( 'Mojo Theme Options', 'Mojo', 'manage_options', 'nemus_mojo', 'mojo_rising_create_page', get_template_directory_uri() . '/img/sunset-icon.png', 110 );
     
-    //Generate sub page
-    add_submenu_page( 'nemus_mojo', 'Mojo Theme Options', 'General', 'manage_options', 'nemus_mojo', 'mojo_rising_create_page' );
     
      add_submenu_page( 'nemus_mojo', 'Mojo Sidebar Options', 'Sidebar', 'manage_options', 'nemus_mojo', 'mojo_rising_create_page' );
+    
+    add_submenu_page( 'nemus_mojo', 'Mojo Theme Options', 'Theme Options', 'manage_options', 'nemus_mojo_theme', 'mojo_theme_support_page' );
     
     
     add_submenu_page( 'nemus_mojo', 'Mojo CSS Options', 'Custom CSS', 'manage_options', 'nemus_mojo_css', 'mojo_rising_settings_page' );
     
-    add_submenu_page( 'nemus_mojo', 'Mojo Theme Options', 'Theme Options', 'manage_options', 'nemus_mojo_theme', 'mojo_theme_support_page' );
+  
     
     //activate custom settings
     add_action( 'admin_init', 'mojo_custom_settings' );
@@ -28,6 +28,7 @@ function mojo_add_admin_page(){
 add_action( 'admin_menu', 'mojo_add_admin_page' );
 
 function mojo_custom_settings(){
+    //Sidebar Options
     register_setting( 'mojo-settings-group', 'first_name' );
     register_setting( 'mojo-settings-group', 'last_name' );
     register_setting( 'mojo-settings-group', 'profile_picture' );
@@ -44,6 +45,23 @@ function mojo_custom_settings(){
     add_settings_field( 'sidebar-facebook', 'Facebook Handler', 'mojo_sidebar_facebook', 'nemus_mojo', 'mojo-sidebar-options' );
     add_settings_field( 'sidebar-gplus', 'Google+ Handler', 'mojo_sidebar_gplus', 'nemus_mojo', 'mojo-sidebar-options' );
     
+    //Theme Support Options
+     register_setting( 'mojo-theme-support', 'post_formats', 'mojo_post_formats_callback' );
+    
+    add_settings_section( 'mojo-theme-options', 'Theme Options', 'mojo_theme_options', 'nemus_mojo_theme' );
+    
+    add_settings_field( 'post-formats', 'Post Formats', 'mojo_post_formats', 'nemus_mojo_theme', 'mojo-theme-options' );
+    
+}
+
+//Post Formats Callback Function
+function mojo_post_formats_callback( $input ){
+    
+    return $input;
+}
+
+function mojo_theme_options(){
+    echo 'Activate and Deactivate specific theme support option';
 }
 
 function mojo_sidebar_profile(){
@@ -91,14 +109,30 @@ function mojo_sidebar_name(){
     echo '<input type="text" name="first_name" value="'. $firstName .'" placeholder="First Name" /> <input type="text" name="last_name" value="'. $lastName .'" placeholder="Last Name" />';
 }
 function mojo_sidebar_options(){
-    echo "Kustomajz svoj sajdbar informajsn";
+    echo "Customize your Sidebar information";
+}
+
+function mojo_post_formats(){
+    
+    $formats = array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' );
+    $output = '';
+    foreach( $formats as $format ){
+        $output .= '<label><input type="checkbox" id="' . $format . '"name="' . $format . '"value="1"> ' . $format . '</label><br>';
+    }
+    echo $output;
 }
 
 function mojo_rising_settings_page(){
     
    echo '<h1>Mojo Custom CSS</h1>';
+    
+     require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
 }
 
 function mojo_rising_create_page(){
-    require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
+   
+}
+
+function mojo_theme_support_page(){
+    require_once( get_template_directory() . '/inc/templates/mojo-rising-support.php');
 }
