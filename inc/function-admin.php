@@ -25,6 +25,7 @@ add_action( 'admin_menu', 'mojo_add_admin_page' );
 function mojo_custom_settings(){
     register_setting( 'mojo-settings-group', 'first_name' );
     register_setting( 'mojo-settings-group', 'last_name' );
+    register_setting( 'mojo-settings-group', 'profile_picture' );
     register_setting( 'mojo-settings-group', 'user_description' );
     register_setting( 'mojo-settings-group', 'twitter_handler', 'mojo_sanitize_twitter_handler' );
     register_setting( 'mojo-settings-group', 'facebook_handler' );
@@ -32,6 +33,7 @@ function mojo_custom_settings(){
     
     add_settings_section( 'mojo-sidebar-options', 'Sidebar Options', 'mojo_sidebar_options', 'nemus_mojo' );
     add_settings_field( 'sidebar-name', 'Full Name', 'mojo_sidebar_name', 'nemus_mojo', 'mojo-sidebar-options' );
+     add_settings_field( 'sidebar-profile-picture', 'Profile Picture', 'mojo_sidebar_profile', 'nemus_mojo', 'mojo-sidebar-options' );
      add_settings_field( 'sidebar-description', 'Description', 'mojo_sidebar_description', 'nemus_mojo', 'mojo-sidebar-options' );
     add_settings_field( 'sidebar-twitter', 'Twitter Handler', 'mojo_sidebar_twitter', 'nemus_mojo', 'mojo-sidebar-options' );
     add_settings_field( 'sidebar-facebook', 'Facebook Handler', 'mojo_sidebar_facebook', 'nemus_mojo', 'mojo-sidebar-options' );
@@ -39,6 +41,10 @@ function mojo_custom_settings(){
     
 }
 
+function mojo_sidebar_profile(){
+    $picture = esc_attr( get_option( 'profile_picture' ) );
+    echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" name="profile_picture" value="'. $picture .'" />';
+}
 function mojo_sidebar_description(){
     $description = esc_attr( get_option( 'user_description' ) );
     echo '<input type="text" name="user_description" value="'. $description .'" placeholder="User Description" /><p class="description">Write something smart.</p>';
