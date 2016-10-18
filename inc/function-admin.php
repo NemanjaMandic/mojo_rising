@@ -43,7 +43,7 @@ function mojo_custom_settings(){
 
 function mojo_sidebar_profile(){
     $picture = esc_attr( get_option( 'profile_picture' ) );
-    echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" name="profile_picture" value="'. $picture .'" />';
+    echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" id="profile-picture" name="profile_picture" value="'. $picture .'" />';
 }
 function mojo_sidebar_description(){
     $description = esc_attr( get_option( 'user_description' ) );
