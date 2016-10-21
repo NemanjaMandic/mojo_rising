@@ -26,5 +26,5 @@
 <form method="post" action="options.php" class="mojo-general-form">
     <?php settings_fields( 'mojo-settings-group' ); ?>
     <?php do_settings_sections( 'nemus_mojo' ); ?>
-    <?php submit_button(); ?>
+    <?php submit_button( 'Save Changes', 'primary', 'btnSubmit' ); ?>
 </form>

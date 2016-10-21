@@ -38,6 +38,7 @@ function mojo_custom_settings(){
     register_setting( 'mojo-settings-group', 'gplus_handler' );
     
     add_settings_section( 'mojo-sidebar-options', 'Sidebar Options', 'mojo_sidebar_options', 'nemus_mojo' );
+    
     add_settings_field( 'sidebar-name', 'Full Name', 'mojo_sidebar_name', 'nemus_mojo', 'mojo-sidebar-options' );
      add_settings_field( 'sidebar-profile-picture', 'Profile Picture', 'mojo_sidebar_profile', 'nemus_mojo', 'mojo-sidebar-options' );
      add_settings_field( 'sidebar-description', 'Description', 'mojo_sidebar_description', 'nemus_mojo', 'mojo-sidebar-options' );
@@ -46,19 +47,21 @@ function mojo_custom_settings(){
     add_settings_field( 'sidebar-gplus', 'Google+ Handler', 'mojo_sidebar_gplus', 'nemus_mojo', 'mojo-sidebar-options' );
     
     //Theme Support Options
-     register_setting( 'mojo-theme-support', 'post_formats', 'mojo_post_formats_callback' );
+     register_setting( 'mojo-theme-support', 'post_formats' );
+     register_setting( 'mojo-theme-support', 'custom_header' );
+     register_setting( 'mojo-theme-support', 'custom_background' );
     
     add_settings_section( 'mojo-theme-options', 'Theme Options', 'mojo_theme_options', 'nemus_mojo_theme' );
     
     add_settings_field( 'post-formats', 'Post Formats', 'mojo_post_formats', 'nemus_mojo_theme', 'mojo-theme-options' );
     
+     add_settings_field( 'custom-header', 'Custom Header', 'mojo_custom_header', 'nemus_mojo_theme', 'mojo-theme-options' );
+     add_settings_field( 'custom-background', 'Custom Background', 'mojo_custom_background', 'nemus_mojo_theme', 'mojo-theme-options' );
+    
 }
 
 //Post Formats Callback Function
-function mojo_post_formats_callback( $input ){
-    
-   return $input;
-}
+
 
 function mojo_theme_options(){
     echo 'Activate and Deactivate specific theme support option';
@@ -66,10 +69,19 @@ function mojo_theme_options(){
 
 function mojo_sidebar_profile(){
     $picture = esc_attr( get_option( 'profile_picture' ) );
-    echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" id="profile-picture" name="profile_picture" value="'. $picture .'" />';
+     if( empty($picture)){
+         
+          echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
+         
+     }else{
+      
+         echo '<input type="button" value="Replace Profile Picture" id="upload-button" class="button button-secondary" /><input type="hidden" id="profile-picture" name="profile_picture" value="'. $picture .'" /><input type="button" class="button button-secondary" id="remove-picture" value="Remove">';
+     }
+   
 }
 function mojo_sidebar_description(){
     $description = esc_attr( get_option( 'user_description' ) );
+   
     echo '<input type="text" name="user_description" value="'. $description .'" placeholder="User Description" /><p class="description">Write something smart.</p>';
 }
 
@@ -123,11 +135,25 @@ function mojo_post_formats(){
     echo $output;
 }
 
+function mojo_custom_header(){
+    $options = get_option( 'custom_header' );
+    $checked = ( @$options == 1 ? 'checked' : '' );
+    echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.  $checked .'> Activate the custom header</label><br>';
+ 
+}
+
+function mojo_custom_background(){
+    $options = get_option( 'custom_background' );
+    $checked = ( @$options == 1 ? 'checked' : '' );
+    echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.  $checked .'> Activate the custom background</label><br>';
+ 
+}
+
 function mojo_rising_settings_page(){
     
-   echo '<h1>Mojo Custom CSS</h1>';
+    require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
     
-     require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
+    
 }
 
 function mojo_rising_create_page(){

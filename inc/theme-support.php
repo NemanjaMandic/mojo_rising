@@ -18,3 +18,13 @@ foreach( $formats as $format ){
 if( !empty( $options )){
     add_theme_support( 'post_formats', $format );
 }
+
+$header = get_option( 'custom_header' );
+if( @$header == 1 ){
+    add_theme_support( 'custom-header' );
+}
+
+$header = get_option( 'custom_background' );
+if( @$header == 1 ){
+    add_theme_support( 'custom-background' );
+}
