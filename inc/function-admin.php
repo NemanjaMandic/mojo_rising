@@ -16,6 +16,8 @@ function mojo_add_admin_page(){
     
     add_submenu_page( 'nemus_mojo', 'Mojo Theme Options', 'Theme Options', 'manage_options', 'nemus_mojo_theme', 'mojo_theme_support_page' );
     
+     add_submenu_page( 'nemus_mojo', 'Mojo Contact Form', 'Contact Form', 'manage_options', 'nemus_mojo_theme_contact', 'mojo_contact_form_page' );
+    
     
     add_submenu_page( 'nemus_mojo', 'Mojo CSS Options', 'Custom CSS', 'manage_options', 'nemus_mojo_css', 'mojo_rising_settings_page' );
     
@@ -56,7 +58,15 @@ function mojo_custom_settings(){
     add_settings_field( 'post-formats', 'Post Formats', 'mojo_post_formats', 'nemus_mojo_theme', 'mojo-theme-options' );
     
      add_settings_field( 'custom-header', 'Custom Header', 'mojo_custom_header', 'nemus_mojo_theme', 'mojo-theme-options' );
+    
      add_settings_field( 'custom-background', 'Custom Background', 'mojo_custom_background', 'nemus_mojo_theme', 'mojo-theme-options' );
+    
+    //Contact Form Options
+     register_setting( 'mojo-contact-options', 'activate' );
+    
+     add_settings_section( 'mojo-contact-section', 'Contact Form', 'mojo_contact_section', 'nemus_mojo_theme_contact' );
+    
+     add_settings_field( 'activate-form', 'Activate Contact Form', 'mojo_activate_contact', 'nemus_mojo_theme_contact', 'mojo-theme-options', 'mojo-contact-section' );
     
 }
 
@@ -163,3 +173,10 @@ function mojo_rising_create_page(){
 function mojo_theme_support_page(){
     require_once( get_template_directory() . '/inc/templates/mojo-rising-support.php');
 }
+
+function mojo_contact_form_page(){
+    require_once( get_template_directory() . '/inc/templates/mojo-contact-form.php');
+}
+
+
+
