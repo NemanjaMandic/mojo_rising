@@ -77,6 +77,10 @@ function mojo_theme_options(){
     echo 'Activate and Deactivate specific theme support option';
 }
 
+function mojo_contact_section(){
+     echo 'Activate and Deactivate the built-in contact form';
+}
+
 function mojo_sidebar_profile(){
     $picture = esc_attr( get_option( 'profile_picture' ) );
      if( empty($picture)){
@@ -150,6 +154,12 @@ function mojo_custom_header(){
     $checked = ( @$options == 1 ? 'checked' : '' );
     echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.  $checked .'> Activate the custom header</label><br>';
  
+}
+
+function mojo_activate_contact(){
+     $options = get_option( 'custom_header' );
+    $checked = ( @$options == 1 ? 'checked' : '' );
+    echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.  $checked .'> Activate the custom header</label><br>';
 }
 
 function mojo_custom_background(){
