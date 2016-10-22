@@ -62,7 +62,7 @@ function mojo_custom_settings(){
      add_settings_field( 'custom-background', 'Custom Background', 'mojo_custom_background', 'nemus_mojo_theme', 'mojo-theme-options' );
     
     //Contact Form Options
-     register_setting( 'mojo-contact-options', 'activate' );
+     register_setting( 'mojo-contact-options', 'activate_contact' );
     
      add_settings_section( 'mojo-contact-section', 'Contact Form', 'mojo_contact_section', 'nemus_mojo_theme_contact' );
     
@@ -157,9 +157,9 @@ function mojo_custom_header(){
 }
 
 function mojo_activate_contact(){
-     $options = get_option( 'custom_header' );
+    $options = get_option( 'activate_contact' );
     $checked = ( @$options == 1 ? 'checked' : '' );
-    echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.  $checked .'> Activate the custom header</label><br>';
+    echo '<label><input type="checkbox" id="activate_contact" name="activate_contact" value="1" '.  $checked .'></label><br>';
 }
 
 function mojo_custom_background(){
