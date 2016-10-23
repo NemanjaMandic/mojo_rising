@@ -15,7 +15,7 @@ if( @$contact == 1 ){
    add_action( 'init', 'sunset_contact_custom_post_type' );
     
    add_filter( 'manage_mojo-contact_posts_columns', 'mojo_set_contact_column' );
-   add_action( 'manage_mojo-contact_custom_column', 'mojo_contact_custom_column' );
+   add_action( 'manage_mojo-contact_posts_custom_column', 'mojo_contact_custom_column', 10, 2 );
 }
 
 function sunset_contact_custom_post_type(){
@@ -50,3 +50,28 @@ function mojo_set_contact_column( $columns ){
     $newColumns['date'] = 'Date';
     return $newColumns;
 }
+
+function mojo_contact_custom_column( $column, $post_id ){
+    
+    switch( $column ){
+            
+        case 'message' :
+            echo get_the_excerpt();
+            break;
+            
+        case 'email' :
+            echo 'email address';
+            break;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
