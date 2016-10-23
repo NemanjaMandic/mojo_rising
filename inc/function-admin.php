@@ -61,12 +61,12 @@ function mojo_custom_settings(){
     
      add_settings_field( 'custom-background', 'Custom Background', 'mojo_custom_background', 'nemus_mojo_theme', 'mojo-theme-options' );
     
-    //Contact Form Options
+    //Contact Form Options sunset-contact-options
      register_setting( 'mojo-contact-options', 'activate_contact' );
     
      add_settings_section( 'mojo-contact-section', 'Contact Form', 'mojo_contact_section', 'nemus_mojo_theme_contact' );
     
-     add_settings_field( 'activate-form', 'Activate Contact Form', 'mojo_activate_contact', 'nemus_mojo_theme_contact', 'mojo-theme-options', 'mojo-contact-section' );
+     add_settings_field( 'activate-form', 'Activate Contact Form', 'mojo_activate_contact', 'nemus_mojo_theme_contact', 'mojo-contact-section' );
     
 }
 
