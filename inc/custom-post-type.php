@@ -65,6 +65,12 @@ function mojo_contact_custom_column( $column, $post_id ){
     }
 }
 
+/* CONTACT META BOXES */
+
+function mojo_contact_add_meta_box(){
+    
+    add_meta_box( 'contact_email', 'User Email', 'mojo_contact_email', 'mojo-contact');
+}
 
 
 
