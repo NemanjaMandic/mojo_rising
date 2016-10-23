@@ -11,7 +11,10 @@ THEME CUSTOM POST TYEPS
 
 $contact = get_option( 'activate_contact' );
 if( @$contact == 1 ){
+    
    add_action( 'init', 'sunset_contact_custom_post_type' );
+    
+   add_filter( 'manage_mojo-contact_posts_columns', 'mojo_set_contact_column' );
 }
 
 function sunset_contact_custom_post_type(){
@@ -37,3 +40,6 @@ function sunset_contact_custom_post_type(){
     register_post_type('mojo-contact', $args);
 }
 
+function mojo_set_contact_column(){
+    
+}
