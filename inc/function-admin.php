@@ -76,7 +76,7 @@ function mojo_custom_settings(){
     //Custom CSS Options
     register_setting( 'mojo-custom-css-options', 'mojo_css' );
     
-    register_settings_section( 'mojo-custom-css-section', 'Custom CSS', 'mojo_custom_css_section_callback', 'nemus_mojo_css');
+   // register_settings_section( 'mojo-custom-css-section', 'Custom CSS', 'mojo_custom_css_section_callback', 'nemus_mojo_css');
     
     add_settings_field( 'custom-css', 'Insert your custom CSS', 'mojo_custom_css_callback', 'nemus_mojo_css', 'mojo-custom-css-section' );
     
@@ -86,9 +86,6 @@ function mojo_custom_settings(){
 
 function mojo_custom_css_section_callback(){
     
-        $css = get_option( 'mojo_css' );
-    $css = ( empty( $css ) ? '/* Mojo Theme Custom CSS */' : $css );
-    echo '<textarea placeholder="Mojo Custom CSS">'.  $css .'</textarea>';
     
     echo 'Customize Mojo Theme with your own css';
 }
