@@ -74,9 +74,9 @@ function mojo_custom_settings(){
      add_settings_field( 'activate-form', 'Activate Contact Form', 'mojo_activate_contact', 'nemus_mojo_theme_contact', 'mojo-contact-section' );
     
     //Custom CSS Options
-    register_setting( 'mojo-custom-css-options', 'mojo_css' );
+    register_setting( 'mojo-custom-css-options', 'mojo_css', 'mojo_sanitize_custom_css' );
     
-   // register_settings_section( 'mojo-custom-css-section', 'Custom CSS', 'mojo_custom_css_section_callback', 'nemus_mojo_css');
+    add_settings_section( 'mojo-custom-css-section', 'Custom CSS', 'mojo_custom_css_section_callback', 'nemus_mojo_css');
     
     add_settings_field( 'custom-css', 'Insert your custom CSS', 'mojo_custom_css_callback', 'nemus_mojo_css', 'mojo-custom-css-section' );
     
@@ -93,7 +93,7 @@ function mojo_custom_css_section_callback(){
 function mojo_custom_css_callback(){
     $css = get_option( 'mojo_css' );
     $css = ( empty( $css ) ? '/* Mojo Theme Custom CSS */' : $css );
-    echo '<textarea placeholder="Mojo Custom CSS">'.  $css .'</textarea>';
+    echo '<div id="customCss">'.  $css .'</div><textarea id="mojo_css" name="mojo_css" style="display:none; visibility:hidden;">' . $css .'</textarea>';
  
 }
 
@@ -152,6 +152,13 @@ function mojo_sanitize_twitter_handler( $input ){
     return $output;
 
 }
+
+function mojo_sanitize_custom_css( $input ){
+    
+    $output = esc_textarea( $input );
+    return $output;
+}
+
 function mojo_sidebar_name(){
     
     $firstName = esc_attr(get_option( 'first_name' ));
