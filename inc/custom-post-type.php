@@ -63,7 +63,8 @@ function mojo_contact_custom_column( $column, $post_id ){
             break;
             
         case 'email' :
-            echo 'email address';
+            $email = get_post_meta( $post_id, '_contact_email_value_key', true );
+            echo '<a href="mailto:' . $email . '">' . $email . '</a>';
             break;
     }
 }

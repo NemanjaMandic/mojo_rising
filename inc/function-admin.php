@@ -23,17 +23,20 @@ function mojo_add_admin_page(){
     
   
     
-    //activate custom settings
-    add_action( 'admin_init', 'mojo_custom_settings' );
+   
 }
 
+ //activate custom settings
 add_action( 'admin_menu', 'mojo_add_admin_page' );
+add_action( 'admin_init', 'mojo_custom_settings' );
+
+
 
 function mojo_custom_settings(){
     //Sidebar Options
+    register_setting( 'mojo-settings-group', 'profile_picture' );
     register_setting( 'mojo-settings-group', 'first_name' );
     register_setting( 'mojo-settings-group', 'last_name' );
-    register_setting( 'mojo-settings-group', 'profile_picture' );
     register_setting( 'mojo-settings-group', 'user_description' );
     register_setting( 'mojo-settings-group', 'twitter_handler', 'mojo_sanitize_twitter_handler' );
     register_setting( 'mojo-settings-group', 'facebook_handler' );
@@ -41,8 +44,10 @@ function mojo_custom_settings(){
     
     add_settings_section( 'mojo-sidebar-options', 'Sidebar Options', 'mojo_sidebar_options', 'nemus_mojo' );
     
+    add_settings_field( 'sidebar-profile-picture', 'Profile Picture', 'mojo_sidebar_profile', 'nemus_mojo', 'mojo-sidebar-options' );
+    
     add_settings_field( 'sidebar-name', 'Full Name', 'mojo_sidebar_name', 'nemus_mojo', 'mojo-sidebar-options' );
-     add_settings_field( 'sidebar-profile-picture', 'Profile Picture', 'mojo_sidebar_profile', 'nemus_mojo', 'mojo-sidebar-options' );
+    
      add_settings_field( 'sidebar-description', 'Description', 'mojo_sidebar_description', 'nemus_mojo', 'mojo-sidebar-options' );
     add_settings_field( 'sidebar-twitter', 'Twitter Handler', 'mojo_sidebar_twitter', 'nemus_mojo', 'mojo-sidebar-options' );
     add_settings_field( 'sidebar-facebook', 'Facebook Handler', 'mojo_sidebar_facebook', 'nemus_mojo', 'mojo-sidebar-options' );
@@ -61,12 +66,19 @@ function mojo_custom_settings(){
     
      add_settings_field( 'custom-background', 'Custom Background', 'mojo_custom_background', 'nemus_mojo_theme', 'mojo-theme-options' );
     
-    //Contact Form Options sunset-contact-options
+    //Contact Form Options
      register_setting( 'mojo-contact-options', 'activate_contact' );
     
      add_settings_section( 'mojo-contact-section', 'Contact Form', 'mojo_contact_section', 'nemus_mojo_theme_contact' );
     
      add_settings_field( 'activate-form', 'Activate Contact Form', 'mojo_activate_contact', 'nemus_mojo_theme_contact', 'mojo-contact-section' );
+    
+    //Custom CSS Options
+    register_setting( 'mojo-custom-css-options', 'mojo_css' );
+    
+    register_settings_section( 'mojo-custom-css-section', 'Custom CSS', 'mojo_custom_css_section_callback', 'nemus_mojo_css');
+    
+    add_settings_field( 'custom-css', 'Insert your custom CSS', 'mojo_custom_css_callback', 'nemus_mojo_css', 'mojo-custom-css-section' );
     
 }
 
@@ -169,15 +181,10 @@ function mojo_custom_background(){
  
 }
 
-function mojo_rising_settings_page(){
-    
-    require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
-    
-    
-}
 
 function mojo_rising_create_page(){
-   
+   echo 'Jebem ti mater';
+     require_once( get_template_directory() . '/inc/templates/mojo-admin.php');
 }
 
 function mojo_theme_support_page(){
@@ -186,6 +193,14 @@ function mojo_theme_support_page(){
 
 function mojo_contact_form_page(){
     require_once( get_template_directory() . '/inc/templates/mojo-contact-form.php');
+}
+
+function mojo_rising_settings_page(){
+    
+    echo '<h1>Mojo Custom CSS';
+    require_once( get_template_directory() . '/inc/templates/mojo-custom-css.php');
+    
+    
 }
 
 
