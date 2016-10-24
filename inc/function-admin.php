@@ -84,6 +84,22 @@ function mojo_custom_settings(){
 
 //Post Formats Callback Function
 
+function mojo_custom_css_section_callback(){
+    
+        $css = get_option( 'mojo_css' );
+    $css = ( empty( $css ) ? '/* Mojo Theme Custom CSS */' : $css );
+    echo '<textarea placeholder="Mojo Custom CSS">'.  $css .'</textarea>';
+    
+    echo 'Customize Mojo Theme with your own css';
+}
+
+function mojo_custom_css_callback(){
+    $css = get_option( 'mojo_css' );
+    $css = ( empty( $css ) ? '/* Mojo Theme Custom CSS */' : $css );
+    echo '<textarea placeholder="Mojo Custom CSS">'.  $css .'</textarea>';
+ 
+}
+
 
 function mojo_theme_options(){
     echo 'Activate and Deactivate specific theme support option';
