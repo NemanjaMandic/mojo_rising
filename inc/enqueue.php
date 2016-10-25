@@ -11,7 +11,7 @@ ADMIN ENQUEUE FUNCTIONS
 */
 
 function mojo_load_admin_scripts( $hook ){
-    echo $hook;
+   // echo $hook;
     
    if( 'toplevel_page_nemus_mojo' == $hook ){
     
