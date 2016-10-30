@@ -1,0 +1,13 @@
+/*
+    @package mojorising
+*/
+
+/*
+     Header
+     --------------
+*/
+.header-container {
+    position: relative;
+    display: block;
+    height: 326px;
+}
