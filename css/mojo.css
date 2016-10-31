@@ -44,12 +44,13 @@ body {
 .site-title {
     color: #fff;
     margin: 0;
+    font-size: 80px;
 }
 
 .site-description{
     font-size: 14px;
     color: #fff;
-    margin-top: 0.4em;
+    margin-top: 1em;
         
 }
 
