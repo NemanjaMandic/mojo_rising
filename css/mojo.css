@@ -77,6 +77,12 @@ body {
       .navbar-mojo li a:hover, .navbar-mojo li a:focus, .navbar-mojo li a:visited {
         background: none;
         opacity: 1; }
+        .navbar-mojo li a:hover:after, .navbar-mojo li a:focus:after, .navbar-mojo li a:visited:after {
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1; }
       .navbar-mojo li a:after {
         content: ' ';
         position: absolute;
@@ -85,6 +91,16 @@ body {
         right: 15px;
         bottom: 14px;
         height: 2px;
-        background: #fff; }
+        background: #fff;
+        -webkit-transition: all 320ms ease;
+        -moz-transition: all 320ms ease;
+        -ms-transition: all 320ms ease;
+        -o-transition: all 320ms ease;
+        transition: all 320ms ease;
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        transform: translateY(-10px); }
 
 /*# sourceMappingURL=mojo.css.map */

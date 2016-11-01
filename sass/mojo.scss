@@ -20,6 +20,13 @@ $body-font: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif
     transition: $attr $time ease;
 }
 
+@mixin transform( $val ){
+    -webkit-transform: $val;
+    -moz-transform: $val;
+    -o-transform: $val;
+    transform: $val;
+}
+
 body {
     font-family: $body-font;
 }
@@ -105,6 +112,7 @@ body {
             &:visited{
                 background: none;
                 opacity: 1;
+                &:after { @include transform( translateY(0)); opacity: 1; }
             }
             &:after{
                 content: ' ';
@@ -115,6 +123,9 @@ body {
                 bottom: 14px;
                 height: 2px;
                 background: #fff;
+                @include animate( all, 320ms );
+                opacity: 0;
+                @include transform( translateY(-10px));
             }
         }
     }
