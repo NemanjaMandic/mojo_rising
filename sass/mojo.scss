@@ -7,8 +7,21 @@
      --------------
 */
 
+//Variables
+$body-font: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
+
+//MIXINS
+
+@mixin animate( $attr, $time ){
+    -webkit-transition: $attr $time ease;
+    -moz-transition: $attr $time ease;
+    -ms-transition: $attr $time ease;
+    -o-transition: $attr $time ease;
+    transition: $attr $time ease;
+}
+
 body {
-    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
+    font-family: $body-font;
 }
 
 .background-image {
@@ -56,6 +69,56 @@ body {
         
 }
 
+.nav-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar-mojo{
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    min-height: auto;
+    margin-bottom: 0;
+    background: rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    
+    ul{
+        float: none;
+    }
+    li{
+        float: none;
+        display: inline-block;
+        
+        a{
+            text-transform: uppercase;
+            color: #FFF;
+            font-size: 12px;
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+            background: none;
+            @include animate( opacity, 320ms );
+            &:hover,
+            &:focus,
+            &:visited{
+                background: none;
+                opacity: 1;
+            }
+            &:after{
+                content: ' ';
+                position: absolute;
+                display: block;
+                left: 15px;
+                right: 15px;
+                bottom: 14px;
+                height: 2px;
+                background: #fff;
+            }
+        }
+    }
+}
 
 
 

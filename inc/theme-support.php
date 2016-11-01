@@ -28,3 +28,11 @@ $header = get_option( 'custom_background' );
 if( @$header == 1 ){
     add_theme_support( 'custom-background' );
 }
+
+/* Activate Nav Menu Option */
+
+function mojo_register_nav_menu(){
+    register_nav_menu( 'primary_menu', 'Primary Navigation Menu' );
+}
+
+add_action( 'after_setup_theme', 'mojo_register_nav_menu' );
