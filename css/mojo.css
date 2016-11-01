@@ -98,9 +98,9 @@ body {
         -o-transition: all 320ms ease;
         transition: all 320ms ease;
         opacity: 0;
-        -webkit-transform: translateY(-10px);
-        -moz-transform: translateY(-10px);
-        -o-transform: translateY(-10px);
-        transform: translateY(-10px); }
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px); }
 
 /*# sourceMappingURL=mojo.css.map */
