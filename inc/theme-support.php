@@ -16,7 +16,7 @@ foreach( $formats as $format ){
     $output[] = ( @$options[$format] == 1 ? $format : '');
 }
 if( !empty( $options )){
-    add_theme_support( 'post_formats', $format );
+    add_theme_support( 'post_formats', $output );
 }
 
 $header = get_option( 'custom_header' );
@@ -38,3 +38,32 @@ function mojo_register_nav_menu(){
 }
 
 add_action( 'after_setup_theme', 'mojo_register_nav_menu' );
+
+/*
+    ============================
+    BLOG LOOP CUSTOM FUNCTIONS
+    ===========================
+*/
+
+function mojo_posted_meta(){
+    return 'category name and publishing time';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
