@@ -41,7 +41,7 @@
                               'theme_location' => 'primary_menu',
                                'container'     => false,
                                'menu_class'    => 'nav navbar-nav',
-                               'walker'        => new Mojo_Walker_Nav_Primary();
+                               'walker'        => new Mojo_Walker_Nav_Primary()
                            ));
                        ?>
                    </nav>

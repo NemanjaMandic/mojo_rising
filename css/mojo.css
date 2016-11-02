@@ -49,6 +49,10 @@ body {
   left: 0;
   right: 0; }
 
+/* 
+	Nav Bar 
+	------------------------------------------------
+*/
 .navbar-mojo {
   text-align: center;
   border: none;
@@ -62,9 +66,34 @@ body {
   .navbar-mojo li {
     float: none;
     display: inline-block; }
+    .navbar-mojo li.active a {
+      opacity: 1; }
+      .navbar-mojo li.active a:after {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1; }
+    .navbar-mojo li.open a {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.1) !important; }
+      .navbar-mojo li.open a:after {
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px);
+        opacity: 0 !important; }
+      .navbar-mojo li.open a:hover, .navbar-mojo li.open a:focus, .navbar-mojo li.open a:visited {
+        background-color: rgba(0, 0, 0, 0.1) !important; }
+        .navbar-mojo li.open a:hover:after, .navbar-mojo li.open a:focus:after, .navbar-mojo li.open a:visited:after {
+          -webkit-transform: translateY(10px);
+          -moz-transform: translateY(10px);
+          -o-transform: translateY(10px);
+          transform: translateY(10px);
+          opacity: 0 !important; }
     .navbar-mojo li a {
       text-transform: uppercase;
-      color: #FFF;
+      color: #fff;
       font-size: 12px;
       opacity: 0.7;
       letter-spacing: 0.05em;
@@ -84,7 +113,7 @@ body {
           transform: translateY(0);
           opacity: 1; }
       .navbar-mojo li a:after {
-        content: ' ';
+        content: '';
         position: absolute;
         display: block;
         left: 15px;
@@ -102,5 +131,14 @@ body {
         -moz-transform: translateY(10px);
         -o-transform: translateY(10px);
         transform: translateY(10px); }
+    .navbar-mojo li ul.dropdown-menu {
+      border: 0;
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.75); }
+      .navbar-mojo li ul.dropdown-menu li {
+        display: block; }
+        .navbar-mojo li ul.dropdown-menu li a:hover, .navbar-mojo li ul.dropdown-menu li a:focus, .navbar-mojo li ul.dropdown-menu li a:visited {
+          background: rgba(0, 0, 0, 0.25) !important;
+          color: #fff; }
 
 /*# sourceMappingURL=mojo.css.map */
