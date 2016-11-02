@@ -29,6 +29,8 @@ if( @$header == 1 ){
     add_theme_support( 'custom-background' );
 }
 
+add_theme_support( 'post-thumbnails' );
+
 /* Activate Nav Menu Option */
 
 function mojo_register_nav_menu(){
