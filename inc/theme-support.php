@@ -71,7 +71,22 @@ function mojo_posted_meta(){
 }
 
 function mojo_posted_footer(){
-    return 'tags list and comment link';
+    
+    $comments_num = get_comments_number();
+    if( comments_open() ){
+        if( $comments_num == 0 ){
+            $comments = __( 'No Comments' );
+        }elseif( $comments_num > 1 ){
+            $comments = $comments_num . __(' Comments' );
+        }else{
+            $comments = __( '1 Comment' );
+        }
+        
+        $comments = '<a href="' . get_comments_link() . '">' . $comments . ' <span class="mojo-icon mojo-comment"></span></a>'
+    }else{
+        $comments = __( 'Comments are closed');
+    }
+    return '<div class="post-footer-content"<div class="row"><div class="col-xs-12 col-sm-6"> ' . get_the_tag_list( '<div class="tags-list"><span class="mojo-icon mojo-tag"></span>', ' ', '</div>' ) . ' </div><div class="col-xs-12 col-sm-6"> ' . $comments . ' </div></div></div>';
 }
 
 
