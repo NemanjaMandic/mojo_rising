@@ -49,6 +49,10 @@ function mojo_posted_meta(){
     return 'category name and publishing time';
 }
 
+function mojo_posted_footer(){
+    return 'tags list and comment link';
+}
+
 
 
 
