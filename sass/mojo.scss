@@ -9,6 +9,8 @@
 
 //Variables
 $body-font: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
+$light-grey: #898989;
+$dark-grey: #333333;
 
 //MIXINS
 
@@ -29,6 +31,14 @@ $body-font: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif
 
 body {
     font-family: $body-font;
+}
+
+a{
+    @include animate( color, 320ms );
+    &:hover,
+    &:focus{
+        text-decoration: none;
+    }
 }
 
 .background-image {
@@ -125,6 +135,35 @@ body {
 	}
 }
 
+/*
+   Standard Post Format
+------------------------------------------
+*/
+
+h1{
+    font-size: 48px;
+    font-weight: 200;
+    &.entry-title{
+        line-height: 1.5em;
+        margin: 50px 0 20px;
+        padding: 0;
+    }
+}
+
+.entry-meta{
+    font-size: 13px;
+    font-weight: 300;
+    color: $light-grey;
+    
+    a{
+        font-weight: 500;
+        color: $light-grey;
+        &:hover,
+        &:focus{
+            color: $dark-grey;
+        }
+    }
+}
 
 
 

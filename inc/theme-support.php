@@ -82,7 +82,8 @@ function mojo_posted_footer(){
             $comments = __( '1 Comment' );
         }
         
-        $comments = '<a href="' . get_comments_link() . '">' . $comments . ' <span class="mojo-icon mojo-comment"></span></a>'
+        $comments = '<a href="' . get_comments_link() . '">' . $comments . ' <span class="mojo-icon mojo-comment"></span></a>';
+        
     }else{
         $comments = __( 'Comments are closed');
     }

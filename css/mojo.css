@@ -8,6 +8,15 @@
 body {
   font-family: "Raleway", "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif; }
 
+a {
+  -webkit-transition: color 320ms ease;
+  -moz-transition: color 320ms ease;
+  -ms-transition: color 320ms ease;
+  -o-transition: color 320ms ease;
+  transition: color 320ms ease; }
+  a:hover, a:focus {
+    text-decoration: none; }
+
 .background-image {
   background-position: center;
   background-size: cover;
@@ -140,5 +149,27 @@ body {
         .navbar-mojo li ul.dropdown-menu li a:hover, .navbar-mojo li ul.dropdown-menu li a:focus, .navbar-mojo li ul.dropdown-menu li a:visited {
           background: rgba(0, 0, 0, 0.25) !important;
           color: #fff; }
+
+/*
+   Standard Post Format
+------------------------------------------
+*/
+h1 {
+  font-size: 48px;
+  font-weight: 200; }
+  h1.entry-title {
+    line-height: 1.5em;
+    margin: 50px 0 20px;
+    padding: 0; }
+
+.entry-meta {
+  font-size: 13px;
+  font-weight: 300;
+  color: #898989; }
+  .entry-meta a {
+    font-weight: 500;
+    color: #898989; }
+    .entry-meta a:hover, .entry-meta a:focus {
+      color: #333333; }
 
 /*# sourceMappingURL=mojo.css.map */
