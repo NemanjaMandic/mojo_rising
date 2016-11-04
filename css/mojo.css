@@ -172,4 +172,8 @@ h1 {
     .entry-meta a:hover, .entry-meta a:focus {
       color: #333333; }
 
+.standard-featured {
+  display: block;
+  height: 330px; }
+
 /*# sourceMappingURL=mojo.css.map */

@@ -18,11 +18,13 @@
         </div>
     </header>
     
-    <div class="entry-content">
+    <div class="entry-content"> 
         
-        <?php if ( has_post_thumbnail() ): ?>
+        <?php if ( has_post_thumbnail() ): 
+            $featured_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
+        ?>
         
-            <div class="standard-featured"><?php the_post_thumbnail(); ?></div>
+            <div class="standard-featured background-image" style="background-image: url(<?php echo $featured_image; ?>)"></div>
         <?php endif; ?>
         
         <div class="entry-excerpt">
@@ -30,7 +32,7 @@
         </div>
         
         <div class="button-container">
-            <a href="<?php the_permalink(); ?>" clas="btn btn-default"><?php _e('Read More'); ?></a>
+            <a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read More'); ?></a>
         </div>
     </div><!-- .entry-content -->
     
