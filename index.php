@@ -18,6 +18,11 @@
             ?>
             
         </div><!-- .container -->
+        
+        <div class="container text-center">
+            <a class="btn btn-lg btn-default" data-page="0">Load More</a>
+        </div>
+        
     </main>
 </div><!-- #primary -->
 
