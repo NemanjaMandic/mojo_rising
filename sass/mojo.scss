@@ -258,7 +258,24 @@ h1{
     
 }
 
-
+/* 
+	Image Post Format 
+	------------------------------------------------
+*/
+.mojo-format-image { margin-top: 50px;
+	.entry-header { height: 600px; @extend %text-shadow; position: relative; }
+	h1, 
+	.entry-meta,
+	.entry-header { color: #ffffff;
+		a { color: #ffffff; }
+	}
+	h1 { padding-top: 10px; }
+}
+.entry-excerpt {
+	&.image-caption { @extend %background-gradient; position: absolute; left: 0; bottom: 0; right: 0; margin: 0; 
+		p { margin: 40px 0; }
+	}
+}
 
 
 
